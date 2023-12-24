@@ -47,6 +47,7 @@
     <Compile Include="Enemy.cs" />
     <Compile Include="Fight.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="Menu.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerArmor.cs" />
     <Compile Include="PlayerInventory.cs" />

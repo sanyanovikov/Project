@@ -13,7 +13,7 @@ namespace dz
             items.Add(item);
         }
 
-        public static void UnequipItem(Item item)
+        private static void UnequipItem(Item item)
         {
             if (equipped.Contains(item))
             {
@@ -29,7 +29,7 @@ namespace dz
             }
         }
 
-        public static void EquipItem(Item item)
+        private static void EquipItem(Item item)
         {
             if (!equipped.Contains(item))
             {
@@ -82,7 +82,11 @@ namespace dz
             Console.WriteLine("\n1 - Надеть предмет");
             Console.WriteLine("2 - Снять предмет");
             Console.WriteLine("0 - Вернуться");
+            EquipmentAction();
+        }
 
+        private static void EquipmentAction()
+        {
             string input = Console.ReadLine();
             if (input.Contains("1"))
             {
