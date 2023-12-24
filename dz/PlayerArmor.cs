@@ -5,7 +5,7 @@ namespace dz
     public class PlayerArmor : Player
     {
         public static int armor = 0;
-        public static int armorQuality = 22;
+        public static int armorQuality = 0;
 
         public PlayerArmor(string _name) : base(_name) { }
 

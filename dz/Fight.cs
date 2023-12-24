@@ -37,7 +37,7 @@ namespace dz
             {
                 player.IncreaseLevel();
                 int receivedGold = rand.Next(25, 101);
-                player.gold += receivedGold;
+                Player.gold += receivedGold;
                 Console.WriteLine("Вы победили! Ваш уровень увеличен на 1!");
                 Console.WriteLine($"Вы получили {receivedGold} золота");
                 Console.ReadKey();

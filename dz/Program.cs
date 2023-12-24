@@ -21,6 +21,8 @@ namespace dz
                 Console.WriteLine("\nВыберите один из пунктов ниже:");
                 Console.WriteLine("0 - Выход");
                 Console.WriteLine("1 - Вызвать на бой соперника");
+                Console.WriteLine("2 - Ваш инвентарь и экипировка");
+                Console.WriteLine("3 - Покупка предметов");
 
                 input = Console.ReadLine();
 
@@ -52,6 +54,15 @@ namespace dz
                             Console.WriteLine("Неверная строка!");
                         }
                     }
+                }
+                else if (input.Contains("2"))
+                {
+                    PlayerInventory.Show();
+                    Console.ReadKey();
+                }
+                else if (input.Contains("3"))
+                {
+                    Store.Show();
                 }
                 else if (input.Contains("0"))
                 {

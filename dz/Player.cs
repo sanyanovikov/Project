@@ -4,10 +4,10 @@ namespace dz
 {
     public class Player
     {
-        private int damage = 10;
+        private int damage = 5;
         private int health = 100;
         private int maxHealth = 100;
-        public int gold = 50;
+        public static int gold = 50;
         private int level = 1;
         private string name;
 
@@ -37,7 +37,7 @@ namespace dz
         public void IncreaseLevel()
         {
             level++;
-            damage += 10;
+            damage += 5;
             maxHealth += 5;
         }
 
