@@ -58,6 +58,16 @@ namespace dz
                 else if (input.Contains("2"))
                 {
                     PlayerInventory.Show();
+                    Console.WriteLine("\nЧтобы экипировать предмет введите его номер!");
+                    try
+                    {
+                        input = Console.ReadLine();
+                        PlayerInventory.EquipItem(PlayerInventory.items[int.Parse(input) - 1]);
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Предмет уже экипирован либо его не существует");
+                    }
                     Console.ReadKey();
                 }
                 else if (input.Contains("3"))

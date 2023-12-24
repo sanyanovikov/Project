@@ -4,7 +4,7 @@ namespace dz
 {
     public class Player
     {
-        private int damage = 5;
+        public static int damage = 5;
         private int health = 100;
         private int maxHealth = 100;
         public static int gold = 50;

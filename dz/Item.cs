@@ -10,7 +10,8 @@ namespace dz
     {
         public string name;
         public int cost;
-        ItemType itemType;
+        public int effective;
+        public ItemType itemType;
         ItemLenght itemLenght;
 
         public enum ItemType
@@ -27,12 +28,13 @@ namespace dz
             Large = 2
         }
 
-        public Item(ItemType _itemType, ItemLenght _itemLenght, string _name, int _cost)
+        public Item(ItemType _itemType, ItemLenght _itemLenght, string _name, int _cost, int _effective)
         {
             itemType = _itemType;
             itemLenght = _itemLenght;
             cost = _cost;
             name = _name;
+            effective = _effective;
         }
     }
 }

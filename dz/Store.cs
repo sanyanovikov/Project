@@ -7,9 +7,9 @@ namespace dz
     {
         private static List<Item> store = new List<Item>
         {
-            new Item(Item.ItemType.Armor, Item.ItemLenght.Medium, "Золотая броня", 1000),
-            new Item(Item.ItemType.Weapon, Item.ItemLenght.Small, "Кинжал", 100),
-            new Item(Item.ItemType.Accessory, Item.ItemLenght.Small, "Рубинчик", 200)
+            new Item(Item.ItemType.Armor, Item.ItemLenght.Medium, "Золотая броня", 1000, 10),
+            new Item(Item.ItemType.Weapon, Item.ItemLenght.Small, "Кинжал", 100, 5),
+            new Item(Item.ItemType.Accessory, Item.ItemLenght.Small, "Рубинчик", 200, 10)
         };
 
         private static void Buy(int index)
