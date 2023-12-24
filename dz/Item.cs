@@ -12,7 +12,7 @@ namespace dz
         public int cost;
         public int effective;
         public ItemType itemType;
-        ItemLenght itemLenght;
+        public ItemLenght itemLenght;
 
         public enum ItemType
         {

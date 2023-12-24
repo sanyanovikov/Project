@@ -7,7 +7,7 @@ namespace dz
         public static int damage = 5;
         private int health = 100;
         private int maxHealth = 100;
-        public static int gold = 50;
+        public static int gold = 99999;
         private int level = 1;
         private string name;
 

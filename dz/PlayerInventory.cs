@@ -13,6 +13,22 @@ namespace dz
             items.Add(item);
         }
 
+        public static void UnequipItem(Item item)
+        {
+            if (equipped.Contains(item))
+            {
+                items.Add(item);
+                equipped.Remove(item);
+                Console.Clear();
+                Console.WriteLine("Предмет успешно снят");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Данный предмет не экипирован или его не существует");
+            }
+        }
+
         public static void EquipItem(Item item)
         {
             if (!equipped.Contains(item))
@@ -35,6 +51,10 @@ namespace dz
                             PlayerArmor.armorQuality += item.effective;
                         }
                         break;
+
+                    default:
+                        Console.WriteLine("Данный предмет нельзя экипировать");
+                        break;
                 }
                 Console.WriteLine("Предмет успешно экипирован");
             }
@@ -46,6 +66,7 @@ namespace dz
 
         public static void Show()
         {
+            Console.Clear();
             Console.WriteLine("Экипированные предметы:");
             for (int i = 0; i < equipped.Count; i++)
             {
@@ -56,6 +77,40 @@ namespace dz
             for (int i = 0; i < items.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. {items[i].name}");
+            }
+
+            Console.WriteLine("\n1 - Надеть предмет");
+            Console.WriteLine("2 - Снять предмет");
+            Console.WriteLine("0 - Вернуться");
+
+            string input = Console.ReadLine();
+            if (input.Contains("1"))
+            {
+                Console.WriteLine("Введите номер предмета, который вы хотите экипировать");
+                input = Console.ReadLine();
+                try
+                {
+                    EquipItem(items[int.Parse(input) - 1]);
+                    Console.ReadKey();
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Такого предмета не существует либо он уже экипирован *_*");
+                    Console.ReadKey();
+                }
+            }
+            else if (input.Contains("2"))
+            {
+                Console.WriteLine("Введите номер предмета, который вы хотите cнять");
+                input = Console.ReadLine();
+                try
+                {
+                    UnequipItem(items[int.Parse(input) - 1]);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Такого предмета не существует либо он уже экипирован *_*");
+                }
             }
         }
     }
