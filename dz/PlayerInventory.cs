@@ -17,12 +17,19 @@ namespace dz
         {
             if (equipped.Contains(item))
             {
-                items.Add(item);
-                equipped.Remove(item);
-                SetProperty(item, item.effective * -1);
-
-                Console.Clear();
-                Console.WriteLine("Предмет успешно снят");
+                if (EquippedSlots.CheckAvaibleSlot(item))
+                {
+                    items.Add(item);
+                    equipped.Remove(item);
+                    SetProperty(item, item.effective * -1);
+                    Console.Clear();
+                    Console.WriteLine("Предмет успешно снят");
+                    EquippedSlots.slots[item.itemType] = false;
+                }
+                else
+                {
+                    Console.WriteLine("Слот пуст!");
+                }
                 Console.ReadKey();
             }
             else
@@ -36,13 +43,19 @@ namespace dz
         {
             if (!equipped.Contains(item))
             {
-                equipped.Add(item);
-                items.Remove(item);
-                SetProperty(item, item.effective);
-
-                Console.Clear();
-                Console.WriteLine("Предмет успешно экипирован");
-                Console.ReadKey();
+                if (!EquippedSlots.CheckAvaibleSlot(item))
+                {
+                    equipped.Add(item);
+                    items.Remove(item);
+                    SetProperty(item, item.effective);
+                    Console.Clear();
+                    Console.WriteLine("Предмет успешно экипирован");
+                    EquippedSlots.slots[item.itemType] = true;
+                }
+                else
+                {
+                    Console.WriteLine("Слот занят!");
+                }
             }
             else
             {
@@ -61,15 +74,15 @@ namespace dz
             switch (item.itemType)
             {
                 case Item.ItemType.Armor:
-                    SetPropertyPlayer(ref Player.armor, item.effective);
+                    SetPropertyPlayer(ref Player.armor, itemEffective);
                     break;
 
                 case Item.ItemType.Weapon:
-                    SetPropertyPlayer(ref Player.damage, item.effective);
+                    SetPropertyPlayer(ref Player.damage, itemEffective);
                     break;
 
                 case Item.ItemType.Accessory:
-                    SetPropertyPlayer(ref Player.armorQuality, item.effective);
+                    SetPropertyPlayer(ref Player.armorQuality, itemEffective);
                     break;
             }
         }
@@ -119,7 +132,7 @@ namespace dz
                 input = Console.ReadLine();
                 try
                 {
-                    UnequipItem(items[int.Parse(input) - 1]);
+                    UnequipItem(equipped[int.Parse(input) - 1]);
                 }
                 catch (Exception)
                 {
