@@ -11,6 +11,11 @@ namespace dz
         private int level = 1;
         private string name;
 
+        public static int armor = 0;
+        public static int armorQuality = 0;
+
+        
+
         public Player(string _name)
         {
             name = _name;
@@ -24,14 +29,19 @@ namespace dz
                 $"АТК: {damage}\n" +
                 $"МАКС ОЗ: {maxHealth}\n" +
                 $"Золота в кошельке: {gold}\n" +
-                $"ЗАЩ: {PlayerArmor.armor}\n" +
-                $"КАЧ ЗАЩ: {PlayerArmor.armorQuality}%");
+                $"ЗАЩ: {armor}\n" +
+                $"КАЧ ЗАЩ: {armorQuality}%");
+        }
+
+        public static int UseArmor(int takenDamage)
+        {
+            int blockedDamage = takenDamage * armorQuality / 100;
+            return blockedDamage;
         }
 
         public void SetHealthToMax()
         {
-            maxHealth += PlayerArmor.armor;
-            health = maxHealth;
+            health = maxHealth + armor;
         }
 
         public void IncreaseLevel()
@@ -43,7 +53,7 @@ namespace dz
 
         public void TakeDamage(int takenDamage)
         {
-            int blockedDamage = PlayerArmor.UseArmor(takenDamage);
+            int blockedDamage = UseArmor(takenDamage);
             takenDamage -= blockedDamage;
             if (health > 0)
             {

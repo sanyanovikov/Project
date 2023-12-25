@@ -19,6 +19,8 @@ namespace dz
             {
                 items.Add(item);
                 equipped.Remove(item);
+                SetProperty(item, item.effective * -1);
+
                 Console.Clear();
                 Console.WriteLine("Предмет успешно снят");
                 Console.ReadKey();
@@ -26,6 +28,7 @@ namespace dz
             else
             {
                 Console.WriteLine("Данный предмет не экипирован или его не существует");
+                Console.ReadKey();
             }
         }
 
@@ -35,32 +38,39 @@ namespace dz
             {
                 equipped.Add(item);
                 items.Remove(item);
-                switch (item.itemType)
-                {
-                    case Item.ItemType.Armor:
-                        PlayerArmor.armor += item.effective;
-                        break;
+                SetProperty(item, item.effective);
 
-                    case Item.ItemType.Weapon:
-                        Player.damage += item.effective;
-                        break;
-
-                    case Item.ItemType.Accessory:
-                        if (PlayerArmor.armorQuality + item.effective <= 100)
-                        {
-                            PlayerArmor.armorQuality += item.effective;
-                        }
-                        break;
-
-                    default:
-                        Console.WriteLine("Данный предмет нельзя экипировать");
-                        break;
-                }
+                Console.Clear();
                 Console.WriteLine("Предмет успешно экипирован");
+                Console.ReadKey();
             }
             else
             {
                 Console.WriteLine("Этот предмет уже экипирован");
+                Console.ReadKey();
+            }
+        }
+
+        private static void SetPropertyPlayer(ref int property, int itemEffective)
+        {
+            property += itemEffective;
+        }
+
+        private static void SetProperty(Item item, int itemEffective)
+        {
+            switch (item.itemType)
+            {
+                case Item.ItemType.Armor:
+                    SetPropertyPlayer(ref Player.armor, item.effective);
+                    break;
+
+                case Item.ItemType.Weapon:
+                    SetPropertyPlayer(ref Player.damage, item.effective);
+                    break;
+
+                case Item.ItemType.Accessory:
+                    SetPropertyPlayer(ref Player.armorQuality, item.effective);
+                    break;
             }
         }
 
