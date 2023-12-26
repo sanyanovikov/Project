@@ -51,16 +51,24 @@ namespace dz
             maxHealth += 5;
         }
 
-        public void TakeDamage(int takenDamage)
+        public void TakeDamage(int takenDamage, bool isMissed)
         {
-            int blockedDamage = UseArmor(takenDamage);
-            takenDamage -= blockedDamage;
-            if (health > 0)
+            if (isMissed)
             {
-                Console.WriteLine("Вас атаковали!");
-                health -= takenDamage;
-                Console.WriteLine($"Вы потеряли {takenDamage} здоровья");
+                Console.WriteLine("Противник промахнулся!");
                 Console.WriteLine($"У вас осталось {health} здоровья");
+            }
+            else
+            {
+                int blockedDamage = UseArmor(takenDamage);
+                takenDamage -= blockedDamage;
+                if (health > 0)
+                {
+                    Console.WriteLine("Вас атаковали!");
+                    health -= takenDamage;
+                    Console.WriteLine($"Вы потеряли {takenDamage} здоровья");
+                    Console.WriteLine($"У вас осталось {health} здоровья");
+                }
             }
         }
 

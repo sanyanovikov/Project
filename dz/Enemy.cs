@@ -22,9 +22,14 @@ namespace dz
                 $"Урон от атаки: {damage}");
         }
 
-        public void TakeDamage(int takenDamage)
+        public void TakeDamage(int takenDamage, bool isMissed)
         {
-            if (health > 0)
+            if (isMissed)
+            {
+                Console.WriteLine("Вы промахнулись!");
+                Console.WriteLine($"У вас осталось {health} здоровья");
+            }
+            else if (health > 0)
             {
                 Console.WriteLine("Враг атакован!");
                 health -= takenDamage;

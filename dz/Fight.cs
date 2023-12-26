@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace dz
 {
@@ -6,17 +7,18 @@ namespace dz
     {
         static Random rand = new Random();
 
-        public static void Conduct(Player player, Enemy enemy)
+        public static void Conduct(Player player, Enemy enemy)  // проведение боя
         {
             Console.Clear();
             while (player.GetHealth() > 0 & enemy.GetHealth() > 0)
             {
-                enemy.TakeDamage(player.GetDamage());
+                enemy.TakeDamage(player.GetDamage() + rand.Next(-3, 4), CheckMiss());
                 Console.WriteLine();
                 if (enemy.GetHealth() > 0)
                 {
-                    player.TakeDamage(enemy.GetDamage());
-                    Console.WriteLine();
+                    player.TakeDamage(enemy.GetDamage() + rand.Next(-3, 4), CheckMiss());
+                    Thread.Sleep(1000);
+                    Console.Clear();
                 }
             }
 
@@ -46,6 +48,18 @@ namespace dz
             {
                 Console.WriteLine("Ничья!");
                 Console.ReadKey();
+            }
+        }
+
+        private static bool CheckMiss() // шанс на промах
+        {
+            if (rand.Next(0, 101) <= 25)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
