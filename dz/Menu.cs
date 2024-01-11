@@ -7,10 +7,10 @@ namespace dz
         private static Random rand = new Random();
         private static string input;
 
-        public static void Update(Player player)
+        public static void Update()
         {
             Console.Clear();
-            player.WriteInfo();
+            Player.WriteInfo();
 
             Console.WriteLine("\nВыберите один из пунктов ниже:");
             Console.WriteLine("0 - Выход");
@@ -22,7 +22,7 @@ namespace dz
 
             if (input.Contains("1"))
             {
-                EnemiesList.Update(rand, player);
+                EnemiesList.Update(rand);
 
                 Console.Clear();
                 Console.WriteLine("Выбор соперника:");
@@ -40,7 +40,7 @@ namespace dz
                     {
                         if (i + 1 == int.Parse(input))
                         {
-                            Fight.Conduct(player, EnemiesList.list[i]);
+                            Fight.Conduct(EnemiesList.list[i]);
                         }
                     }
                     catch (FormatException)

@@ -8,17 +8,16 @@ namespace dz
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Как зовут вашего персонажа?");
-            Player player = new Player(Console.ReadLine());
+            Character.Create();
 
             while (true)
             {
-                Menu.Update(player);
+                Menu.Update();
                 foreach (Enemy enemy in EnemiesList.list)
                 {
                     enemy.SetHealthToMax();
                 }
-                player.SetHealthToMax();
+                Player.SetHealthToMax();
             }
         }
     }

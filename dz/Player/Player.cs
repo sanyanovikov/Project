@@ -5,26 +5,21 @@ namespace dz
     public class Player
     {
         public static int damage = 5;
-        private int health = 100;
-        private int maxHealth = 100;
+        private static int health = 100;
+        private static int maxHealth = 100;
         public static int gold = 99999;
-        private int level = 1;
-        private string name;
+        private static int level = 1;
+        private static string name;
 
         public static int armor = 0;
         public static int armorQuality = 0;
 
-        
+        public static string Name { get => name; set => name = value; }
 
-        public Player(string _name)
-        {
-            name = _name;
-        }
-
-        public void WriteInfo()
+        public static void WriteInfo()
         {
             Console.WriteLine("Ваш персонаж");
-            Console.WriteLine($"Имя: {name}\n" +
+            Console.WriteLine($"Имя: {Name}\n" +
                 $"УР: {level}\n" +
                 $"АТК: {damage}\n" +
                 $"МАКС ОЗ: {maxHealth}\n" +
@@ -39,19 +34,19 @@ namespace dz
             return blockedDamage;
         }
 
-        public void SetHealthToMax()
+        public static void SetHealthToMax()
         {
             health = maxHealth + armor;
         }
 
-        public void IncreaseLevel()
+        public static void IncreaseLevel()
         {
             level++;
             damage += 5;
             maxHealth += 5;
         }
 
-        public void TakeDamage(int takenDamage, bool isMissed)
+        public static void TakeDamage(int takenDamage, bool isMissed)
         {
             if (isMissed)
             {
@@ -72,12 +67,12 @@ namespace dz
             }
         }
 
-        public void SetLevel(int _level) => level = _level;
+        public static void SetLevel(int _level) => level = _level;
 
-        public int GetHealth() => health;
+        public static int GetHealth() => health;
 
-        public int GetLevel() => level;
+        public static int GetLevel() => level;
 
-        public int GetDamage() => damage;
+        public static int GetDamage() => damage;
     }
 }

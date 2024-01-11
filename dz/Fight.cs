@@ -7,37 +7,37 @@ namespace dz
     {
         static Random rand = new Random();
 
-        public static void Conduct(Player player, Enemy enemy)  // проведение боя
+        public static void Conduct(Enemy enemy)  // проведение боя
         {
             Console.Clear();
-            while (player.GetHealth() > 0 & enemy.GetHealth() > 0)
+            while (Player.GetHealth() > 0 & enemy.GetHealth() > 0)
             {
-                enemy.TakeDamage(player.GetDamage() + rand.Next(-3, 4), CheckMiss());
+                enemy.TakeDamage(Player.GetDamage() + rand.Next(-3, 4), CheckMiss());
                 Console.WriteLine();
                 if (enemy.GetHealth() > 0)
                 {
-                    player.TakeDamage(enemy.GetDamage() + rand.Next(-3, 4), CheckMiss());
+                    Player.TakeDamage(enemy.GetDamage() + rand.Next(-3, 4), CheckMiss());
                     Thread.Sleep(1000);
                     Console.Clear();
                 }
             }
 
-            CheckWinner(player, enemy);
+            CheckWinner(enemy);
         }
 
-        private static void CheckWinner(Player player, Enemy enemy)
+        private static void CheckWinner(Enemy enemy)
         {
-            if (enemy.GetHealth() > 0 & player.GetHealth() <= 0)
+            if (enemy.GetHealth() > 0 & Player.GetHealth() <= 0)
             {
                 Console.WriteLine("Вы проиграли!");
                 Console.WriteLine("Теперь вы снова слабы!");
                 Console.WriteLine("Ваш уровень понижен до 1-го");
-                player.SetLevel(1);
+                Player.SetLevel(1);
                 Console.ReadKey();
             }
-            else if (enemy.GetHealth() <= 0 & player.GetHealth() > 0)
+            else if (enemy.GetHealth() <= 0 & Player.GetHealth() > 0)
             {
-                player.IncreaseLevel();
+                Player.IncreaseLevel();
                 int receivedGold = rand.Next(25, 101);
                 Player.gold += receivedGold;
                 Console.WriteLine("Вы победили! Ваш уровень увеличен на 1!");

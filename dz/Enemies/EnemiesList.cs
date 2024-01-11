@@ -7,14 +7,13 @@ namespace dz
     {
         public static List<Enemy> list = new List<Enemy>
             {
-                new Enemy("Человек паук"),
-                new Enemy("Дэдпул"),
-                new Enemy("Халк"),
-                new Enemy("Железный человек"),
-                new Enemy("Доктор стрендж")
+                new Enemy("Zombie"),
+                new Enemy("Orc"),
+                new Enemy("Goblin"),
+                new Enemy("Giant"),
             };
 
-        public static void Update(Random rand, Player player)
+        public static void Update(Random rand)
         {
             int newLevel;
             string tempName;
@@ -22,7 +21,7 @@ namespace dz
             for (int i = 0; i < list.Count; i++)
             {
                 tempName = list[i].GetName();
-                newLevel = rand.Next(player.GetLevel(), player.GetLevel() + 1);
+                newLevel = rand.Next(Player.GetLevel(), Player.GetLevel() + 1);
                 list[i].SetLevel(newLevel);
                 list[i].SetName(tempName);
             }

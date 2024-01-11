@@ -43,18 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnemiesList.cs" />
-    <Compile Include="Enemy.cs" />
-    <Compile Include="EquippedSlots.cs" />
+    <Compile Include="Player\Character.cs" />
+    <Compile Include="Enemies\EnemiesList.cs" />
+    <Compile Include="Enemies\Enemy.cs" />
+    <Compile Include="Inventory\EquippedSlots.cs" />
     <Compile Include="Fight.cs" />
-    <Compile Include="InventoryOccupancy.cs" />
-    <Compile Include="Item.cs" />
+    <Compile Include="Inventory\InventoryOccupancy.cs" />
+    <Compile Include="Inventory\Item.cs" />
     <Compile Include="Menu.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="PlayerInventory.cs" />
+    <Compile Include="Player\Player.cs" />
+    <Compile Include="Player\PlayerInventory.cs" />
+    <Compile Include="Player\Species\Elf.cs" />
+    <Compile Include="Player\Species\Species.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Store.cs" />
+    <Compile Include="Inventory\Store.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
