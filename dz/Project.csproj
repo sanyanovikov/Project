@@ -53,6 +53,7 @@
     <Compile Include="Menu.cs" />
     <Compile Include="Player\Player.cs" />
     <Compile Include="Player\PlayerInventory.cs" />
+    <Compile Include="Player\Species\Human.cs" />
     <Compile Include="Player\Species\Elf.cs" />
     <Compile Include="Player\Species\Species.cs" />
     <Compile Include="Program.cs" />

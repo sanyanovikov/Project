@@ -21,7 +21,7 @@ namespace dz
             for (int i = 0; i < list.Count; i++)
             {
                 tempName = list[i].GetName();
-                newLevel = rand.Next(Player.GetLevel(), Player.GetLevel() + 1);
+                newLevel = rand.Next(Player.Level, Player.Level + 1);
                 list[i].SetLevel(newLevel);
                 list[i].SetName(tempName);
             }

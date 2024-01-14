@@ -12,7 +12,7 @@ namespace dz
             Console.Clear();
             while (Player.GetHealth() > 0 & enemy.GetHealth() > 0)
             {
-                enemy.TakeDamage(Player.GetDamage() + rand.Next(-3, 4), CheckMiss());
+                enemy.TakeDamage(Player.damage + rand.Next(-3, 4), CheckMiss());
                 Console.WriteLine();
                 if (enemy.GetHealth() > 0)
                 {
@@ -27,7 +27,7 @@ namespace dz
 
         private static void CheckWinner(Enemy enemy)
         {
-            if (enemy.GetHealth() > 0 & Player.GetHealth() <= 0)
+            if (enemy.GetHealth() > 0 & Player.Health <= 0)
             {
                 Console.WriteLine("Вы проиграли!");
                 Console.WriteLine("Теперь вы снова слабы!");
@@ -35,7 +35,7 @@ namespace dz
                 Player.SetLevel(1);
                 Console.ReadKey();
             }
-            else if (enemy.GetHealth() <= 0 & Player.GetHealth() > 0)
+            else if (enemy.GetHealth() <= 0 & Player.Health > 0)
             {
                 Player.IncreaseLevel();
                 int receivedGold = rand.Next(25, 101);

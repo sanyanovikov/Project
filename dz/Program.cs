@@ -4,8 +4,6 @@ namespace dz
 {
     internal class Program
     {
-        private static Random rand = new Random();
-
         static void Main(string[] args)
         {
             Character.Create();
