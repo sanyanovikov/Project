@@ -9,6 +9,7 @@
                 " урон незначительно снижен)";
             damageModifier = -3;
             healthModifier = 20;
+            itemClass = Item.ItemClass.Elf;
         }
     }
 }

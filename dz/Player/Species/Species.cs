@@ -15,6 +15,7 @@ namespace dz
         protected string description;
         protected int damageModifier;
         protected int healthModifier;
+        protected Item.ItemClass itemClass;
 
         public static void Show()
         {
@@ -33,6 +34,7 @@ namespace dz
             {
                 if (i + 1 == input)
                 {
+                    Player.itemClass = speciesList[i].itemClass;
                     Player.Species = speciesList[i];
                     Player.damage += speciesList[i].damageModifier;
                     Player.MaxHealth += speciesList[i].healthModifier;

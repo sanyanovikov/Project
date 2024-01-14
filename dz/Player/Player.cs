@@ -13,6 +13,7 @@ namespace dz
         public static int gold = 99999;
         public static int armor = 0;
         public static int armorQuality = 0;
+        public static Item.ItemClass itemClass;
 
         public static int Health { get => health; set => health = value; }
         public static Species Species { get => species; set => species = value; }

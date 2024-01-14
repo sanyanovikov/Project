@@ -7,6 +7,14 @@
         public int effective;
         public ItemType itemType;
         public ItemLenght itemLenght;
+        public ItemClass itemClass;
+
+        public enum ItemClass
+        {
+            Any = 0,
+            Human = 1,
+            Elf = 2
+        }
 
         public enum ItemType
         {
@@ -22,10 +30,11 @@
             Large = 2
         }
 
-        public Item(ItemType _itemType, ItemLenght _itemLenght, string _name, int _cost, int _effective)
+        public Item(ItemType _itemType, ItemLenght _itemLenght, ItemClass _itemClass, string _name, int _cost, int _effective)
         {
             itemType = _itemType;
             itemLenght = _itemLenght;
+            itemClass = _itemClass;
             cost = _cost;
             name = _name;
             effective = _effective;
